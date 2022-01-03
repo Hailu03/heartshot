@@ -1,7 +1,5 @@
 import pygame,sys
 
-from pygame.constants import CONTROLLER_AXIS_TRIGGERLEFT
-
 # initialize pygame
 pygame.init()
 
