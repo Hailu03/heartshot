@@ -39,7 +39,7 @@ def display_cat(x,y):
     screen.blit(catImg,(x,y))
 
 # dog
-scale = 0.3
+scale = 0.2
 dogImg = pygame.image.load("dog.png")
 dogImg = pygame.transform.scale(dogImg,(dogImg.get_width()*scale,dogImg.get_height()*scale))
 dogx = 500
