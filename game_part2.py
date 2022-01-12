@@ -116,18 +116,29 @@ while running:
     catx += catx_change
     display_cat(catx,caty)
 
+    # heart
+    heart_rect.topleft = (heartx,hearty)
+    if ban:
+        hearty += hearty_change
+        display_heart(heartx,hearty)
+
+    if hearty <= -30:
+        hearty = caty
+        ban = False
+
     # dog 
     for i in range(num_of_dogs):
 
         # game over
         if dogy[i] >= 200:
+            heart_x = -1000
+            heart_y = 0
             for j in range(num_of_dogs):
                 dogy[j] = 2000
-                catx_change = 0
+            catx_change = 0
             pygame.draw.rect(screen,(255,0,0),(0,0,SCREENWIDTH,screen_y))
             if screen_y <= SCREENHEIGHT:
                 screen_y += 1
-
             lose_game_word = big_font.render("You Lose",True,(255,255,255))
             screen.blit(lose_game_word,(SCREENWIDTH//2 - 100,SCREENHEIGHT//2 - 70))
 
@@ -147,16 +158,6 @@ while running:
             dogx[i] = random.randint(100,700)
             dogy[i] = random.randint(50,100)
             score_value += 1
-
-    # heart
-    heart_rect.topleft = (heartx,hearty)
-    if ban:
-        hearty += hearty_change
-        display_heart(heartx,hearty)
-
-    if hearty <= -30:
-        hearty = caty
-        ban = False
 
     # score
     score_word = font.render("SCORE x " + str(score_value),True,(255,255,255))
